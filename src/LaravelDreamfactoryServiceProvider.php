@@ -20,7 +20,7 @@ class LaravelDreamfactoryServiceProvider extends ServiceProvider {
     {
         $this->publishes([
             __DIR__ . '/config/laravel-df.php' => config_path('laravel-df.php')
-        ], 'config');
+        ], 'laravel-dreamfactory');
     }
 
         /**
