@@ -40,5 +40,6 @@ php artisan vendor:publish
 ## Package dependencies
 
 ```
-"guzzlehttp/guzzle":"~6.0"
+"guzzlehttp/guzzle":"~6.0",
+"yajra/laravel-datatables-oracle": "~6.0"
 ```

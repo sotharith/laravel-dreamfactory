@@ -7,6 +7,8 @@
     | Describe what it does. 
     */
 
+    'environment' => 'development', //Change to production on the production environment
+
     'default' => [
         'auth_uri' =>'',
         'app_uri'  =>'',
