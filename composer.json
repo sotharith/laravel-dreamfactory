@@ -1,0 +1,29 @@
+{
+    "name": "gdce/laravel-dreamfactory",
+    "description": "Laravel to Dreamfactory connector",
+    "keywords": ["laravel", "dreamfactory", "connector"],
+    "homepage": "http://www.laravel-df.com",
+    "authors": [
+        {
+            "name": "HENG Sotharith",
+            "email": "heng.sotharith@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.0",
+        "guzzlehttp/guzzle":"~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+       "psr-4": {
+         "GDCE\\LaravelDreamfactory\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "MIT"
+    
+}
