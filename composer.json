@@ -22,6 +22,12 @@
          "GDCE\\LaravelDreamfactory\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sotharith/laravel-dreamfactory"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "MIT"
