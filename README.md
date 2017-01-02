@@ -27,7 +27,15 @@ GDCE\LaravelDreamfactory\LaravelDreamfactoryServiceProvider::class
 
 ```
 
-4- Have fun!
+4- Publish config file
+
+Run the following command to publish the config file
+
+```
+php artisan vendor:publish
+```
+
+5- Have fun!
 
 ## Package dependencies
 
