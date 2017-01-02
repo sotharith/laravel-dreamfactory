@@ -1,6 +1,6 @@
 # Laravel 5's Package for Dreamfactory Connector
 
-A custom made Laravel5 package used as the connector Dreamfactory API
+A custom made Laravel5 package used as the connector to Dreamfactory API
 
 ## Usage
 
