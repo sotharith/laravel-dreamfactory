@@ -35,7 +35,7 @@ class LaravelDreamfactory
         $this->dfConnection['password'] = config('laravel-df')[$dfConnectionString]['password'];
 
         //Environment
-        $this->environment = config('laravel-df')[$dfConnectionString]['environment'];
+        $this->environment = config('laravel-df')['environment'];
 
         $this->authenticateDreamfactory();
 
