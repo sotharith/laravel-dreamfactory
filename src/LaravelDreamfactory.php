@@ -69,7 +69,6 @@ class LaravelDreamfactory
             "remember_me"=>$this->rememberMe
         ];
         $this->authUserSession = json_decode((string) $client->post('',['body'=>json_encode($data)])->getBody());
-        dd($this->authUserSession);
     }
 
     public function store($appUri, $data){
