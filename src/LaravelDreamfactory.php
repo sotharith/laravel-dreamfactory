@@ -40,7 +40,7 @@ class LaravelDreamfactory
         $this->authenticateDreamfactory();
 
         $this->guzzleOption = [
-            'base_uri' => $this->dfConnection['app_uri'],
+            'base_uri' => $this->dfConnection['base_uri'].'/'.$this->dfConnection['app_uri'],
             'timeout'  => $this->timeout,
             'headers'  => [
                 'Accept'=> $this->dfConnection['accept'],
@@ -57,7 +57,7 @@ class LaravelDreamfactory
     private function authenticateDreamfactory(){
         //Setting up basic connection properties
         $client = new Client([
-            'base_uri' => $this->dfConnection['base_uri'].$this->dfConnection['auth_uri'],
+            'base_uri' => $this->dfConnection['base_uri'].'/'.$this->dfConnection['auth_uri'],
             'timeout'  => $this->timeout,
             'headers'  => [
                 'Accept'=> $this->dfConnection['accept'],
