@@ -10,6 +10,7 @@
     'environment' => 'development', //Change to production on the production environment
 
     'default' => [
+        'base_uri' =>'',
         'auth_uri' =>'',
         'app_uri'  =>'',
         'api_key'  =>'',

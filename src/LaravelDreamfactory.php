@@ -20,14 +20,15 @@ class LaravelDreamfactory
     private $client = null;
     private $environment = 'production';
 
-    public function __construct()
+    public function __construct($dfConnectionString = 'default')
     {
-
+        $this->connect($dfConnectionString);
     }
 
-    public function connect($dfConnectionString = 'default', $authUri = ''){
+    public function connect($dfConnectionString){
         $this->dfConnection['base_uri'] = config('laravel-df')[$dfConnectionString]['base_uri'];
         $this->dfConnection['auth_uri'] = config('laravel-df')[$dfConnectionString]['auth_uri'];
+        $this->dfConnection['app_uri'] = config('laravel-df')[$dfConnectionString]['app_uri'];
         $this->dfConnection['api_key'] = config('laravel-df')[$dfConnectionString]['api_key'];
         $this->dfConnection['accept'] = config('laravel-df')[$dfConnectionString]['accept'];
         $this->dfConnection['email'] = config('laravel-df')[$dfConnectionString]['email'];
@@ -39,7 +40,7 @@ class LaravelDreamfactory
         $this->authenticateDreamfactory();
 
         $this->guzzleOption = [
-            'base_uri' => $this->dfConnection['base_uri'],
+            'base_uri' => $this->dfConnection['app_uri'],
             'timeout'  => $this->timeout,
             'headers'  => [
                 'Accept'=> $this->dfConnection['accept'],
