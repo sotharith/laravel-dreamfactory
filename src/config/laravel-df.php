@@ -10,9 +10,9 @@
     'environment' => 'development', //Change to production on the production environment
 
     'default' => [
-        'base_uri' =>'',
-        'auth_uri' =>'',
-        'app_uri'  =>'',
+        'base_uri' =>'http://localhost/api/v2/',
+        'auth_uri' =>'user/session/',
+        'app_uri'  =>'cnsw_coo_formd_hsr/',
         'api_key'  =>'',
         'accept'   =>'',
         'email'    =>'',

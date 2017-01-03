@@ -40,24 +40,23 @@ class LaravelDreamfactory
         $this->authenticateDreamfactory();
 
         $this->guzzleOption = [
-            'base_uri' => $this->dfConnection['base_uri'].'/'.$this->dfConnection['app_uri'],
+            'base_uri' => $this->dfConnection['base_uri'].$this->dfConnection['app_uri'],
             'timeout'  => $this->timeout,
             'headers'  => [
                 'Accept'=> $this->dfConnection['accept'],
                 'X-DreamFactory-Api-Key'=> $this->dfConnection['api_key'],
-                'X-DreamFactory-Session-Token' => $this->authUserSession
+                'X-DreamFactory-Session-Token' => $this->authUserSession->session_id
             ]
         ];
 
         $this->client =  new Client($this->guzzleOption);
-
 
     }
 
     private function authenticateDreamfactory(){
         //Setting up basic connection properties
         $client = new Client([
-            'base_uri' => $this->dfConnection['base_uri'].'/'.$this->dfConnection['auth_uri'],
+            'base_uri' => $this->dfConnection['base_uri'].$this->dfConnection['auth_uri'],
             'timeout'  => $this->timeout,
             'headers'  => [
                 'Accept'=> $this->dfConnection['accept'],
@@ -108,7 +107,7 @@ class LaravelDreamfactory
         ];
         //Update search field
         if($this->environment === 'development'){
-            $this->alter_search_text($table, $data['column']);
+            $this->alter_search_text($table, $data['columns']);
         }
         return $datatables;
     }
