@@ -71,6 +71,10 @@ class LaravelDreamfactory
         $this->authUserSession = json_decode((string) $client->post('',['body'=>json_encode($data)])->getBody());
     }
 
+    public function show($appUri, $id){
+
+    }
+
     public function store($appUri, $data){
         try{
             return json_decode((string) $this->client->post($appUri,['body'=>json_encode($data)])->getBody(), true)['resource'][0];
@@ -98,6 +102,7 @@ class LaravelDreamfactory
     public function datatables($table, $data, $filters = []){
         $response = $this->client->get($table.$this->datatable_filter($data, $filters));
         $result = json_decode((string) $response->getBody(), true);
+
         $datatables = [
             'input' => $data,
             'data'  => $result['resource'],
@@ -108,6 +113,13 @@ class LaravelDreamfactory
         //Update search field
         if($this->environment === 'development'){
             $this->alter_search_text($table, $data['columns']);
+        }
+        return $datatables;
+    }
+
+    public function addColumn($datatables){
+        for ($i =0; $i < count($datatables['data']); $i++){
+            $datatables['data'][$i]['actions']="<button>Hello</button>";
         }
         return $datatables;
     }
@@ -134,9 +146,10 @@ class LaravelDreamfactory
         $fields = substr($fields,0,strlen($fields)-1);
         $search = "";
         if(trim($request['search']['value']) != null){
-            $search = " and (search_text like %".strtolower(trim($request['search']['value']))."%)";
+            $search = " and (search_text like ".urlencode("%".strtolower(trim($request['search']['value']))."%").")";
         }
         $order = "&order=".$request['columns'][$request['order'][0]['column']]['data']." ".strtoupper($request['order'][0]['dir']);
+//        dd(urlencode($filter.$search));
         return $limit.$offset.$filter.$search.$count.$fields.$order;
     }
 
