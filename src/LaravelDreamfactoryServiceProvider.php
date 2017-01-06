@@ -34,6 +34,11 @@ class LaravelDreamfactoryServiceProvider extends ServiceProvider {
         {
             return new LaravelDreamfactory($app['router']);
         });
+
+        $this->app['gdce'] = $this->app->share(function($app)
+        {
+            return new GDCE();
+        });
     }
 
     /**
