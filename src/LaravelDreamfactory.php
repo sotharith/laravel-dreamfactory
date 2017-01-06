@@ -72,7 +72,11 @@ class LaravelDreamfactory
     }
 
     public function show($appUri, $id){
-
+        try{
+            return json_decode((string) $this->client->get($appUri.'/'.$id)->getBody(), true)['resource'][0];
+        }catch (\Exception $e){
+            return false;
+        }
     }
 
     public function store($appUri, $data){
