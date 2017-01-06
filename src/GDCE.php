@@ -16,7 +16,7 @@ class GDCE
         return isset($value)?$value:$valueIfNotExist;
     }
 
-    public function num($val, $precision){
+    public function num($val, $precision=2){
         try{
             return number_format($val, $precision, '.', ',');
         }catch (\Exception $e){
