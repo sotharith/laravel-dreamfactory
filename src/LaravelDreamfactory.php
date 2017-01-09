@@ -71,9 +71,9 @@ class LaravelDreamfactory
         $this->authUserSession = json_decode((string) $client->post('',['body'=>json_encode($data)])->getBody());
     }
 
-    public function show($appUri, $id){
+    public function show($appUri){
         try{
-            return json_decode((string) $this->client->get($appUri.'/'.$id)->getBody(), true)['resource'][0];
+            return json_decode((string) $this->client->get($appUri)->getBody(), true)['resource'][0];
         }catch (\Exception $e){
             return false;
         }
